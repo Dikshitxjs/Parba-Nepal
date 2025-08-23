@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parba Nepal - Celebrating Nepali Festivals</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo">
+        <h2>Parba Nepal</h2>
+      </div>
+
+      <!-- Main Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+
+      <!-- Right side icons -->
+      <div class="nav-icons">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-btn">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <!-- More options dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#gallery">Gallery</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <div class="mobile-menu-header">
+        <h3>Parba Nepal</h3>
+        <button class="close-menu-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#festivals">Festivals</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home/Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Celebrate the Spirit of Nepal</h1>
+      <p>Discover festivals, culture, and traditions at your fingertips</p>
+      <a href="#events" class="cta-button">Explore Festivals</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nepali Festival">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-description">Parba Nepal is dedicated to preserving and promoting the rich cultural heritage of Nepalese festivals.</p>
+      
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <h3>Cultural Heritage</h3>
+          <p>Preserving ancient traditions for future generations</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Community</h3>
+          <p>Bringing people together through celebrations</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Events</h3>
+          <p>Organizing memorable cultural experiences</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="events">
+    <div class="container">
+      <h2 class="section-title">Upcoming Festivals & Events</h2>
+      
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-date">
+            <span class="date-day">21</span>
+            <span class="date-month">Oct</span>
+          </div>
+          <div class="event-info">
+            <h3>Dashain</h3>
+            <p>The biggest Hindu festival in Nepal celebrating the victory of gods over demons</p>
+            <a href="#register" class="event-btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="date-day">04</span>
+            <span class="date-month">Nov</span>
+          </div>
+          <div class="event-info">
+            <h3>Tihar</h3>
+            <p>Festival of lights celebrating the bond between humans and animals</p>
+            <a href="#register" class="event-btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="date-day">14</span>
+            <span class="date-month">Jan</span>
+          </div>
+          <div class="event-info">
+            <h3>Maghe Sankranti</h3>
+            <p>Marks the transition of the sun into the Capricorn zodiac sign</p>
+            <a href="#register" class="event-btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz" class="quiz">
+    <div class="container">
+      <h2 class="section-title">Did You Know?</h2>
+      
+      <div class="quiz-card">
+        <p>Which festival is called the festival of lights?</p>
+        <div class="quiz-options">
+          <button class="quiz-option">Dashain</button>
+          <button class="quiz-option correct">Tihar</button>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register Section -->
+  <section id="register" class="register">
+    <div class="container">
+      <h2 class="section-title">Register for Events</h2>
+      
+      <form class="registration-form">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="">Select Festival</option>
+            <option value="dashain">Dashain Celebration</option>
+            <option value="tihar">Tihar Festival</option>
+            <option value="sankranti">Maghe Sankranti</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Register Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Parba Nepal</h3>
+          <p>Celebrating the rich cultural heritage of Nepalese festivals.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#register">Register</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>Email: info@parbanepal.com</p>
+          <p>Phone: +977 1 4123456</p>
+          <p>Kathmandu, Nepal</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Parba Nepal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
