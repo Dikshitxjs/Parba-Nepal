@@ -1,58 +1,136 @@
-/* =============== GALLERY SECTION =============== */
+/* ===== GALLERY SECTION ===== */
 .gallery {
-  padding: 80px 0;
-  background-color: var(--card-bg);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fdf9f6, var(--background-color));
+  font-family: 'Poppins', sans-serif;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 25px;
   margin-top: 50px;
 }
 
+/* ===== Gallery Card ===== */
 .gallery-item {
   position: relative;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow);
   aspect-ratio: 4/3;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: var(--card-bg);
 }
 
+.gallery-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Image Styling ===== */
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .gallery-item:hover img {
   transform: scale(1.05);
+  filter: brightness(0.85);
 }
 
+/* ===== Overlay Styling (Refined) ===== */
 .gallery-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-  color: white;
-  padding: 20px;
+
+  /* Gradient blend with theme */
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--primary-color) 85%, transparent) 0%,
+    color-mix(in srgb, var(--primary-color) 55%, transparent) 50%,
+    transparent 100%
+  );
+
+  /* Depth */
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  backdrop-filter: blur(3px);
+  color: #fff;
+  padding: 18px 16px;
   transform: translateY(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 0 0 16px 16px;
 }
 
 .gallery-item:hover .gallery-overlay {
   transform: translateY(0);
+  opacity: 1;
 }
 
+/* ===== Overlay Text ===== */
 .gallery-overlay h3 {
-  color: white;
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45); /* readability */
+  transition: color 0.3s ease;
 }
 
 .gallery-overlay p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  margin: 0;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* Glow effect on hover */
+.gallery-overlay h3:hover,
+.gallery-overlay p:hover {
+  color: var(--secondary-color); /* golden glow */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .gallery-overlay {
+    padding: 14px 12px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-overlay {
+    padding: 12px 10px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 0.95rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.75rem;
+  }
+
+  /* Keep overlay partially visible on small screens */
+  .gallery-overlay {
+    transform: translateY(50%);
+    opacity: 1;
+  }
 }

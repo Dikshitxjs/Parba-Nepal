@@ -1,28 +1,30 @@
 /* =============== CSS VARIABLES =============== */
 :root {
-  /* Light theme colors */
-  --primary-color: #8B1E1E;       /* deep festive red for navbar */
-  --secondary-color: #D97706;     /* warm saffron/orange accent */
-  --accent-color: #C2410C;        /* burnt orange highlight */
-  --background-color: #FFF9F5;    /* warm cream background */
-  --card-bg: #FFFFFF;             /* pure white for contrast cards */
-  --text-color: #2C2C2C;          /* dark neutral gray for readability */
-  --text-light: #6B6B6B;          /* muted gray for secondary text */
-  --border-color: #E5DED8;        /* soft beige border */
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* Light Theme - Warm, festive, elegant */
+  --primary-color: #8B1E2D;       /* Deep Maroon - traditional & rich */
+  --secondary-color: #F4C430;     /* Golden Yellow - festival glow */
+  --accent-color: #E6453B;        /* Vermilion Red - lively highlights */
+  --highlight-color: #FF7F50;     /* Coral Accent - for buttons & calls to action */
+  --background-color: #FFF6F0;    /* Soft Cream - warm and inviting */
+  --card-bg: #FFFFFF;             /* Clean cards */
+  --text-color: #2C2C2C;          /* Dark charcoal - readable */
+  --text-light: #7A7A7A;          /* Soft gray for secondary text */
+  --border-color: #E3D6C4;        /* Warm subtle border */
+  --shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* Soft, floating shadows */
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
-  --primary-color: #7A1B1B;       /* slightly darker red */
-  --secondary-color: #F59E0B;     /* golden saffron accent */
-  --accent-color: #EA580C;        /* bright festive orange */
-  --background-color: #1A1412;    /* deep warm black */
-  --card-bg: #2C1F1A;             /* rich brownish red for cards */
-  --text-color: #F9F6F2;          /* soft off-white text */
-  --text-light: #B8AFA9;          /* muted warm gray */
-  --border-color: #3A2E2A;        /* subtle brown border */
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  /* Dark Theme - Festive & deep */
+  --primary-color: #9C2A3B;       /* Slightly warmer maroon */
+  --secondary-color: #F5B800;     /* Golden yellow for brightness */
+  --accent-color: #FF4C3B;        /* Vibrant red for highlights */
+  --highlight-color: #FF9060;     /* Coral orange accent for buttons */
+  --background-color: #1C1B1A;    /* Deep charcoal for elegance */
+  --card-bg: #2E2C2A;             /* Soft dark cards */
+  --text-color: #F5EDE3;          /* Creamy text for contrast */
+  --text-light: #B9A99B;          /* Muted beige for secondary text */
+  --border-color: #4B423A;        /* Subtle warm borders */
+  --shadow: 0 6px 15px rgba(0, 0, 0, 0.35); /* Stronger dark shadows */
 }
 
 
@@ -257,349 +259,79 @@ p {
   color: var(--secondary-color);
 }
 
-/* =============== HERO SECTION =============== */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-/* Add a dark gradient overlay for better readability */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-  z-index: -1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin: 15px 0;
-  color: #f0f0f0;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #e85a2c; /* warm festival orange-red */
-  color: #fff;
-  font-weight: bold;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #c0392b; /* deeper red for hover */
-}
-
-
-/* =============== ABOUT SECTION =============== */
-.about {
-  padding: 80px 0;
-  background-color: var(--card-bg);
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.feature-card {
-  background-color: var(--background-color);
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-}
-
-.feature-icon {
-  width: 70px;
-  height: 70px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
+/* =============== FOOTER =============== */
+.footer {
+  background: #8B1E2D; /* Deep maroon */
   color: white;
-  font-size: 1.8rem;
+  padding: 60px 20px 30px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.feature-card h3 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
-}
-
-/* =============== EVENTS SECTION =============== */
-.events {
-  padding: 80px 0;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.event-card {
-  display: flex;
-  background-color: var(--card-bg);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.event-date {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 20px;
+.footer-wrapper {
+  max-width: 900px;       /* fixed width for modern layout */
+  margin: 0 auto;         /* center it */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 90px;
+  gap: 30px;
 }
 
-.date-day {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.date-month {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.event-info {
-  padding: 20px;
-  flex: 1;
-}
-
-.event-info h3 {
+.footer-brand h3 {
+  font-size: 30px;
   margin-bottom: 10px;
-  color: var(--primary-color);
+  font-weight: 700;
 }
 
-.event-info p {
-  margin-bottom: 15px;
-  color: var(--text-light);
-}
-
-.event-btn {
-  display: inline-block;
-  color: var(--secondary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.event-btn:hover {
-  color: var(--accent-color);
-}
-
-/* =============== QUIZ SECTION =============== */
-.quiz {
-  padding: 80px 0;
-  background-color: var(--card-bg);
-}
-
-.quiz-card {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: var(--background-color);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
+.footer-brand p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
   text-align: center;
+  line-height: 1.5;
 }
 
-.quiz-card p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.footer-social {
+  display: flex;
+  gap: 25px;
 }
 
-.quiz-options {
+.footer-social a {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.quiz-option {
-  padding: 12px 25px;
-  border: 2px solid var(--secondary-color);
-  background-color: transparent;
-  color: var(--secondary-color);
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  font-size: 24px;
+  color: white;
   transition: all 0.3s ease;
 }
 
-.quiz-option:hover {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.quiz-option.correct {
-  background-color: #4caf50;
-  border-color: #4caf50;
-  color: white;
-}
-
-.quiz-result {
-  font-weight: 600;
-  min-height: 24px;
-}
-
-/* =============== REGISTER SECTION =============== */
-.register {
-  padding: 80px 0;
-}
-
-.registration-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: var(--card-bg);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-size: 1rem;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 15px;
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-  background-color: var(--accent-color);
-}
-
-/* =============== FOOTER =============== */
-.footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 60px 0 20px;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-section h3, .footer-section h4 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-.footer-section p {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 10px;
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-  color: var(--secondary-color);
+.footer-social a:hover {
+  background: #F4C430;   /* festive gold */
+  color: #8B1E2D;        /* maroon text on hover */
+  transform: scale(1.25);
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+  margin-top: 35px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+
+}
+
+
+
+
+
 
 /* =============== RESPONSIVE DESIGN =============== */
 @media (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 120px;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.8rem;
-  }
-  
   .section-title {
     font-size: 2.2rem;
   }
@@ -614,50 +346,24 @@ p {
     display: block;
   }
   
-  .hero-content h1 {
-    font-size: 2.3rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-  
   .section-title {
     font-size: 2rem;
-  }
-  
-  .features, .events-grid {
-    grid-template-columns: 1fr;
   }
   
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
+
   }
+    .footer-wrapper {
+    gap: 20px;
+  }
+
+  .footer-social a {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+ 
 }
 
-@media (max-width: 576px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  
-  .cta-button {
-    padding: 12px 25px;
-  }
-  
-  .quiz-options {
-    flex-direction: column;
-  }
-  
-  .event-card {
-    flex-direction: column;
-  }
-  
-  .event-date {
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
-    min-width: auto;
-    padding: 15px;
-  }
-}

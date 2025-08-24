@@ -9,8 +9,10 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const quizOptions = document.querySelectorAll('.quiz-option');
 const registrationForm = document.querySelector('.registration-form');
 
+
 // =============== THEME TOGGLE FUNCTIONALITY ===============
 // Function to toggle between light and dark themes
+themeToggleBtn.addEventListener('click', toggleTheme);
 function toggleTheme() {
   // Check if dark theme is currently active
   const isDark = document.body.getAttribute('data-theme') === 'dark';
@@ -18,11 +20,13 @@ function toggleTheme() {
   // Toggle between themes
   if (isDark) {
     document.body.setAttribute('data-theme', 'light');
+    console.log("is light");
     themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
     // Save theme preference to localStorage
     localStorage.setItem('theme', 'light');
   } else {
     document.body.setAttribute('data-theme', 'dark');
+    console.log("is dark");
     themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
     // Save theme preference to localStorage
     localStorage.setItem('theme', 'dark');
@@ -45,35 +49,83 @@ function closeMobileMenu() {
 }
 
 // =============== QUIZ FUNCTIONALITY ===============
-// Function to handle quiz answer selection
-function handleQuizSelection(event) {
-  // Get the clicked button
-  const selectedOption = event.target;
-  // Find the quiz result element
-  const quizResult = selectedOption.closest('.quiz-card').querySelector('.quiz-result');
-  
-  // Check if the selected option is correct
-  if (selectedOption.classList.contains('correct')) {
-    quizResult.textContent = 'Correct! 🎉';
-    quizResult.style.color = '#4caf50'; // Green color for correct answer
-  } else {
-    quizResult.textContent = 'Incorrect. Try again!';
-    quizResult.style.color = '#f44336'; // Red color for incorrect answer
-    
-    // Highlight the correct answer
-    quizOptions.forEach(option => {
-      if (option.classList.contains('correct')) {
-        option.style.backgroundColor = '#4caf50';
-        option.style.color = 'white';
+
+document.addEventListener("DOMContentLoaded", () => {
+  const quizCards = document.querySelectorAll(".quiz-card");
+
+  quizCards.forEach(card => {
+    const options = card.querySelectorAll(".quiz-option");
+    const result = card.querySelector(".quiz-result");
+
+    options.forEach(option => {
+      option.addEventListener("click", () => {
+        // Stop if already answered
+        if (card.classList.contains("answered")) return;
+
+        // Correct option
+        if (option.classList.contains("correct")) {
+          result.textContent = "✅ Correct!";
+          result.style.color = "#4caf50";
+
+          option.classList.add("correct-answer");
+
+          // Lock card
+          card.classList.add("answered");
+          options.forEach(btn => btn.disabled = true);
+
+        } else {
+          // Wrong option
+          result.textContent = "❌ Incorrect. Try again!";
+          result.style.color = "#f44336";
+
+          option.classList.add("wrong-answer");
+
+          // Reset wrong styling after delay
+          setTimeout(() => {
+            option.classList.remove("wrong-answer");
+            result.textContent = "";
+          }, 1500);
+        }
+      });
+    });
+  });
+});
+
+// this a faq section
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Select all FAQ items (each question + answer box)
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  // 2. Loop through each FAQ item
+  faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question"); // The clickable part
+    const answer = item.querySelector(".faq-answer");     // The hidden answer
+    const toggle = item.querySelector(".faq-toggle");     // The + or − sign
+
+    // 3. Add a click event on the question
+    question.addEventListener("click", () => {
+      // Check if the clicked FAQ is already open
+      const isOpen = item.classList.contains("active");
+
+      // 🔽 IMPORTANT BLOCK: Close all items first 🔽
+      faqItems.forEach(i => {
+        i.classList.remove("active");                        // remove "active" (closes it visually)
+        i.querySelector(".faq-answer").style.maxHeight = null; // collapse the answer (height = 0)
+        i.querySelector(".faq-toggle").textContent = "+";      // reset symbol back to +
+      });
+
+      // 4. If the clicked FAQ was not open, open it now
+      if (!isOpen) {
+        item.classList.add("active");                        // mark this FAQ as active
+        answer.style.maxHeight = answer.scrollHeight + "px"; // expand answer to full height
+        toggle.textContent = "−";                            // change + to −
       }
     });
-  }
-  
-  // Disable all quiz options after selection
-  quizOptions.forEach(option => {
-    option.style.pointerEvents = 'none';
   });
-}
+});
+
+
+
 
 // =============== FORM HANDLING ===============
 // Function to handle form submission
@@ -148,10 +200,10 @@ function initApp() {
   mobileMenuBtn.addEventListener('click', openMobileMenu);
   closeMenuBtn.addEventListener('click', closeMobileMenu);
   
-  // Quiz options
-  quizOptions.forEach(option => {
-    option.addEventListener('click', handleQuizSelection);
-  });
+  // // Quiz options
+  // quizOptions.forEach(option => {
+  //   option.addEventListener('click', handleQuizSelection);
+  // });
   
   // Registration form
   if (registrationForm) {
@@ -173,6 +225,11 @@ function initApp() {
     }
   });
 }
+
+
+
+
+
 
 // =============== START THE APPLICATION ===============
 // Initialize the app when the DOM content is fully loaded

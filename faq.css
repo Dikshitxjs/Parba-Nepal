@@ -1,58 +1,88 @@
 /* =============== FAQ SECTION =============== */
 .faq {
-  padding: 80px 0;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fdfdfd, #f4f7fb);
+  font-family: 'Poppins', sans-serif;
 }
 
 .faq-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
+/* ===== FAQ Card ===== */
 .faq-item {
-  margin-bottom: 20px;
-  border-radius: 12px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 200, 200, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  background-color: var(--card-bg);
 }
 
+.faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Question Row ===== */
 .faq-question {
-  padding: 20px;
+  padding: 22px 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.faq-question:hover {
-  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .faq-question h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
+/* ===== Toggle Icon ===== */
 .faq-toggle {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
   color: var(--secondary-color);
-  transition: transform 0.3s ease;
-}
-
-.faq-answer {
-  padding: 0 20px;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.faq-item.active .faq-answer {
-  padding: 0 20px 20px;
-  max-height: 500px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .faq-item.active .faq-toggle {
   transform: rotate(45deg);
+  color: var(--accent-color);
+}
+
+/* ===== Answer Content ===== */
+.faq-answer {
+  padding: 0 26px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  line-height: 1.6;
+  color: #444;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 26px 22px;
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .faq-question h3 {
+    font-size: 1.1rem;
+  }
+
+  .faq-toggle {
+    font-size: 1.4rem;
+  }
 }
