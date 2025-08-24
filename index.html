@@ -19,88 +19,94 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <div class="logo">
-        <h2>Parba Nepal</h2>
-      </div>
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="#home">
+        <img src="./5.jpg" alt="Parba Nepal Logo">
+        <span>Parba Nepal</span>
+      </a>
+    </div>
 
-      <!-- Main Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#register">Register</a></li>
-      </ul>
+    <!-- Main Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#register">Register</a></li>
+    </ul>
 
-      <!-- Right side icons -->
-      <div class="nav-icons">
-        <!-- Theme Toggle -->
-        <button id="theme-toggle" class="theme-btn">
-          <i class="fas fa-moon"></i>
+    <!-- Right side icons -->
+    <div class="nav-icons">
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+      </button>
+      
+      <!-- More options dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <i class="fas fa-ellipsis-v"></i>
         </button>
-        
-        <!-- More options dropdown -->
-        <div class="dropdown">
-          <button class="dropdown-btn">
-            <i class="fas fa-ellipsis-v"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#gallery">Gallery</a>
-            <a href="#festivals">Festivals</a>
-            <a href="#blogs">Blogs</a>
-            <a href="#quiz">Quiz</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-          </div>
+        <div class="dropdown-content">
+          <a href="#gallery">Gallery</a>
+          <a href="#festivals">Festivals</a>
+          <a href="#blogs">Blogs</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </div>
-
-        <!-- Mobile menu button -->
-        <button class="mobile-menu-btn">
-  <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <div class="mobile-menu-header">
-        <h3>Parba Nepal</h3>
-        <button class="close-menu-btn">
-          <i  class="fas fa-times"></i>
-        </button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#festivals">Festivals</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#quiz">Quiz</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#register">Register</a></li>
-      </ul>
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <h3>Parba Nepal</h3>
+      <button class="close-menu-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#festivals">Festivals</a></li>
+      <li><a href="#blogs">Blogs</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#register">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
 <!-- HERO SECTION -->
-<section id="home" class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
+<section class="hero">
+  <video class="hero-video" autoplay muted loop>
     <source src="./festival.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-
-  <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
-
-  <!-- Content -->
+  
   <div class="hero-content">
-    <h1>Celebrate the Spirit of Nepal</h1>
-    <p>Discover festivals, culture, and traditions at your fingertips</p>
+    <h1>Experience Nepal's Vibrant Festival Magic</h1>
+    <div class="typing-container">
+      Discover <span class="typing-text" id="typing-element"></span><span class="cursor"></span> at your fingertips
+    </div>
     <a href="#festivals" class="cta-button">Explore Festivals</a>
   </div>
+  
+  <div class="hero-decoration"></div>
 </section>
 
 

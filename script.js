@@ -48,6 +48,28 @@ function closeMobileMenu() {
   document.body.style.overflow = 'auto';
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.hero-video');
+    
+    if (video) {
+        // Slow down the video for cinematic effect (60% of normal speed)
+        video.playbackRate = 0.5;
+        
+        // Set video properties for seamless cinematic experience
+        video.muted = true;
+        video.loop = true;
+        
+        // Start playing the video
+        video.play().catch(error => {
+            console.log('Video autoplay prevented:', error);
+        });
+    }
+});
+
+
+
 // =============== QUIZ FUNCTIONALITY ===============
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -234,3 +256,85 @@ function initApp() {
 // =============== START THE APPLICATION ===============
 // Initialize the app when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', initApp);
+
+
+
+// Typing effect functionality
+function initTypingEffect() {
+    // List of words to cycle through
+    const words = ["festivals", "culture", "traditions", "events"];
+    
+    // Get the HTML element where text will be typed
+    const typingElement = document.getElementById('typing-element');
+    const cursor = document.querySelector('.cursor');
+    
+    // Return if elements don't exist
+    if (!typingElement || !cursor) return;
+    
+    // Settings for the typing effect
+    const typeSpeed = 100;    // milliseconds per character when typing
+    const eraseSpeed = 80;    // milliseconds per character when erasing
+    const pauseTime = 1500;   // milliseconds to pause between words
+    
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingTimeout;
+    
+    function type() {
+        // Clear any existing timeout
+        clearTimeout(typingTimeout);
+        
+        // Get the current word
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            // Remove characters
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            // Add characters
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        // Determine timing for next step
+        let typeDelay = isDeleting ? eraseSpeed : typeSpeed;
+        
+        if (!isDeleting && charIndex === currentWord.length) {
+            // Pause at end of word
+            typeDelay = pauseTime;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // Move to next word
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeDelay = 500;
+        }
+        
+        // Call function again after delay
+        typingTimeout = setTimeout(type, typeDelay);
+    }
+    
+    // Start the typing effect
+    type();
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initTypingEffect);
+
+// Reinitialize if theme changes (to handle any potential style recalculation)
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-theme') {
+            // Small delay to ensure theme transition completes
+            setTimeout(initTypingEffect, 100);
+        }
+    });
+});
+
+// Observe the html element for theme changes
+observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+});

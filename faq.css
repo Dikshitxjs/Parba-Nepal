@@ -1,7 +1,7 @@
 /* =============== FAQ SECTION =============== */
 .faq {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #fdfdfd, #f4f7fb);
+  background: var(--background-color); /* ✅ uses theme background */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -16,9 +16,9 @@
 /* ===== FAQ Card ===== */
 .faq-item {
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--card-background, rgba(255, 255, 255, 0.8)); /* ✅ uses card bg */
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 200, 200, 0.25);
+  border: 1px solid var(--border-color, rgba(200, 200, 200, 0.25));
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   overflow: hidden;
@@ -42,20 +42,20 @@
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary-color); /* ✅ theme color */
 }
 
 /* ===== Toggle Icon ===== */
 .faq-toggle {
   font-size: 1.6rem;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: var(--secondary-color); /* ✅ theme color */
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .faq-item.active .faq-toggle {
   transform: rotate(45deg);
-  color: var(--accent-color);
+  color: var(--accent-color); /* ✅ theme color */
 }
 
 /* ===== Answer Content ===== */
@@ -65,7 +65,7 @@
   opacity: 0;
   overflow: hidden;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-color); /* ✅ theme text */
   font-size: 1rem;
   transition: all 0.4s ease;
 }
