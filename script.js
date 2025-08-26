@@ -89,6 +89,59 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+
+
+
+        // Select all flip cards
+const flipCards = document.querySelectorAll('.flip-card');
+
+flipCards.forEach(card => {
+    const inner = card.querySelector('.flip-card-inner');
+
+    // For desktop: flip on hover
+    card.addEventListener('mouseenter', () => {
+        inner.classList.add('flipped');
+    });
+    card.addEventListener('mouseleave', () => {
+        inner.classList.remove('flipped');
+    });
+
+    // For mobile: flip on click
+    card.addEventListener('click', () => {
+        inner.classList.toggle('flipped');
+    });
+});
+
+
+document.querySelectorAll('.countdown').forEach(cd => {
+  const targetDate = new Date(cd.dataset.date);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      cd.innerHTML = `<span>Event Started!</span>`;
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    cd.innerHTML = `
+      <div><span>${days}</span><small>Days</small></div>
+      <div><span>${hours}</span><small>Hrs</small></div>
+      <div><span>${minutes}</span><small>Min</small></div>
+      <div><span>${seconds}</span><small>Sec</small></div>
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
+
 // =============== QUIZ FUNCTIONALITY ===============
 
 document.addEventListener("DOMContentLoaded", () => {
