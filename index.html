@@ -32,7 +32,7 @@
 
     <!-- Main Navigation Links -->
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
+      <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#register">Register</a></li>
@@ -91,7 +91,7 @@
 </nav>
 
 <!-- HERO SECTION -->
-<section class="hero">
+<section id ="hero" class="hero">
   <video class="hero-video" autoplay muted loop>
     <source src="./festival.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -371,53 +371,27 @@
 
 
 <!-- Quiz Section -->
-<!-- Quiz Section -->
 <section id="quiz" class="quiz">
   <div class="container">
-    <h2 class="section-title">Did You Know?</h2>
+    <h2 class="section-title">🎊 Did You Know?</h2>
 
-    <!-- Quiz Card 1 -->
     <div class="quiz-card">
-      <p>Which festival is called the festival of lights?</p>
-      <div class="quiz-options">
-        <button class="quiz-option">Dashain</button>
-        <button class="quiz-option correct">Tihar</button>
+      <div class="progress-bar">
+        <div class="progress"></div>
       </div>
+      <p class="quiz-question"></p>
+      <div class="quiz-options"></div>
       <div class="quiz-result"></div>
+      <button class="next-btn" style="display:none;">Next Question →</button>
     </div>
-
-    <!-- Quiz Card 2 -->
-    <div class="quiz-card">
-      <p>Which festival celebrates the victory of good over evil and includes swinging on large swings called 'ping'?</p>
-      <div class="quiz-options">
-        <button class="quiz-option correct">Dashain</button>
-        <button class="quiz-option">Holi</button>
-      </div>
-      <div class="quiz-result"></div>
-    </div>
-
-    <!-- Quiz Card 3 -->
-    <div class="quiz-card">
-      <p>Which festival is famous for throwing colors and celebrating spring?</p>
-      <div class="quiz-options">
-        <button class="quiz-option correct">Holi</button>
-        <button class="quiz-option">Indra Jatra</button>
-      </div>
-      <div class="quiz-result"></div>
-    </div>
-
-    <!-- Quiz Card 4 -->
-    <div class="quiz-card">
-      <p>Which festival is celebrated by Nepali women fasting for their husband’s long life?</p>
-      <div class="quiz-options">
-        <button class="quiz-option correct">Teej</button>
-        <button class="quiz-option">Dashain</button>
-      </div>
-      <div class="quiz-result"></div>
-    </div>
-
   </div>
 </section>
+
+<!-- Confetti canvas -->
+<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
+
+
+
 
 
 
@@ -623,24 +597,34 @@
     </div>
   </section>
 
-  <!-- Footer -->
-<footer class="footer">
+<footer>
   <div class="footer-wrapper">
-    <div class="footer-brand">
-      <h3>Parba Nepal</h3>
-      <p>Celebrating Nepali festivals like Dashain, Tihar, Holi, and Jatra.</p>
+    <div class="footer-content">
+      <h4>About Us</h4>
+      <p>Parba Nepal is dedicated to preserving and promoting the rich cultural heritage of Nepalese festivals.</p>
     </div>
-
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+    <div class="footer-content">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#register">Register</a>
+    </div>
+    <div class="footer-content">
+      <h4>Follow Us</h4>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     &copy; 2025 Parba Nepal. All rights reserved.
   </div>
+</footer>
+
 </footer>
 
 

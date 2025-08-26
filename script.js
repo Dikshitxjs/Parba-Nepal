@@ -143,47 +143,77 @@ document.querySelectorAll('.countdown').forEach(cd => {
 });
 
 // =============== QUIZ FUNCTIONALITY ===============
-
 document.addEventListener("DOMContentLoaded", () => {
-  const quizCards = document.querySelectorAll(".quiz-card");
+  const quizData = [
+    { question: "Which festival is called the festival of lights?", options: ["Dashain", "Tihar"], correct: 1 },
+    { question: "Which festival celebrates victory of good over evil and includes swinging on large swings called 'ping'?", options: ["Dashain", "Holi"], correct: 0 },
+    { question: "Which festival is famous for throwing colors and celebrating spring?", options: ["Holi", "Indra Jatra"], correct: 0 },
+    { question: "Which festival is celebrated by Nepali women fasting for their husband’s long life?", options: ["Teej", "Dashain"], correct: 0 }
+  ];
 
-  quizCards.forEach(card => {
-    const options = card.querySelectorAll(".quiz-option");
-    const result = card.querySelector(".quiz-result");
+  const questionEl = document.querySelector(".quiz-question");
+  const optionsEl = document.querySelector(".quiz-options");
+  const resultEl = document.querySelector(".quiz-result");
+  const nextBtn = document.querySelector(".next-btn");
+  const progress = document.querySelector(".progress");
 
-    options.forEach(option => {
-      option.addEventListener("click", () => {
-        // Stop if already answered
-        if (card.classList.contains("answered")) return;
+  let currentIndex = 0;
 
-        // Correct option
-        if (option.classList.contains("correct")) {
-          result.textContent = "✅ Correct!";
-          result.style.color = "#4caf50";
+  function showQuestion(index) {
+    const q = quizData[index];
+    questionEl.innerHTML = `🎉 ${q.question}`;
+    optionsEl.innerHTML = "";
+    resultEl.textContent = "";
+    nextBtn.style.display = "none";
 
-          option.classList.add("correct-answer");
-
-          // Lock card
-          card.classList.add("answered");
-          options.forEach(btn => btn.disabled = true);
-
-        } else {
-          // Wrong option
-          result.textContent = "❌ Incorrect. Try again!";
-          result.style.color = "#f44336";
-
-          option.classList.add("wrong-answer");
-
-          // Reset wrong styling after delay
-          setTimeout(() => {
-            option.classList.remove("wrong-answer");
-            result.textContent = "";
-          }, 1500);
-        }
-      });
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.className = "quiz-option";
+      btn.addEventListener("click", () => handleAnswer(i, btn));
+      optionsEl.appendChild(btn);
     });
+
+    progress.style.width = `${(index / quizData.length) * 100}%`;
+  }
+
+  function handleAnswer(selectedIndex, btn) {
+    const correctIndex = quizData[currentIndex].correct;
+
+    if (selectedIndex === correctIndex) {
+      btn.classList.add("correct-answer");
+      resultEl.textContent = "✅ Correct!";
+      optionsEl.querySelectorAll("button").forEach(b => b.disabled = true);
+      nextBtn.style.display = "inline-block";
+      resultEl.classList.add("celebrate"); // simple celebration animation
+      setTimeout(() => resultEl.classList.remove("celebrate"), 1000);
+    } else {
+      btn.classList.add("wrong-answer");
+      resultEl.textContent = "❌ Incorrect! Try again.";
+      btn.disabled = true;
+    }
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex < quizData.length) {
+      showQuestion(currentIndex);
+    } else {
+      document.querySelector(".quiz-card").innerHTML = `
+        <p style="font-weight:800; font-size:1.4rem; color:var(--primary-color)">
+        🎊 Congratulations! You've completed the quiz! 🎊
+        </p>`;
+      progress.style.width = "100%";
+    }
   });
+
+  showQuestion(currentIndex);
 });
+
+
+
+
+
 
 // this a faq section
 document.addEventListener("DOMContentLoaded", () => {
